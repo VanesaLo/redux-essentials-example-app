@@ -7,22 +7,21 @@ export const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
 
-
-  const handleOnclick= () => {
+  const handleOnclick = () => {
     if (title && content) {
-        dispatch(postAdded({
-            id: nanoid(),
-            title,
-            content
-
-        }))
-        setTitle("")
-        setContent("")
+      dispatch(
+        postAdded({
+          id: nanoid(),
+          title,
+          content,
+        })
+      )
+      setTitle('')
+      setContent('')
     }
   }
-
 
   return (
     <section>
@@ -43,7 +42,9 @@ export const AddPostForm: React.FC = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="button" onClick={handleOnclick}>Save Post</button>
+        <button type="button" onClick={handleOnclick}>
+          Save Post
+        </button>
       </form>
     </section>
   )

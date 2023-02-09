@@ -2,13 +2,16 @@ import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { postUpdate } from '../posts/postsSlice'
+import { RouteComponentProps } from 'react-router';
 
 
-type Props ={
-    match: any,
+type MatchParams={
+    postId: string,
 }
+type DetailMatch= RouteComponentProps<MatchParams>;
 
-export const EditPostForm: React.FC<Props> = ({match}) => {
+
+export const EditPostForm: React.FC<DetailMatch> = ({match}) => {
   const {postId} = match.params
   
   const post = useAppSelector(state => state.posts.find(post => post.id === postId))
@@ -53,4 +56,3 @@ const handleOnClick = () => {
   </section>
   )
 }
-

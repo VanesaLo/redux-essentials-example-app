@@ -1,12 +1,16 @@
 import React from 'react'
 import { useAppSelector } from '../hooks/hooks'
 import { Link } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router';
 
-type Props = {
-  match: any
+
+type MatchParams={
+  postId: string,
 }
+type DetailMatch= RouteComponentProps<MatchParams>;
 
-export const SinglePostPage: React.FC<Props> = ({ match }) => {
+
+export const SinglePostPage: React.FC<DetailMatch> = ({ match }) => {
   const { postId } = match.params
 
   const post = useAppSelector((state) =>
