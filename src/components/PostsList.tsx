@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export const PostsList = () => {
+export const PostsList: React.FC = () => {
     const posts= useAppSelector(state => state.posts)
 
    const renderedPosts = posts.map((post) => (

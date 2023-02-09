@@ -3,7 +3,7 @@ import { nanoid } from '@reduxjs/toolkit'
 import { useAppDispatch } from '../hooks/hooks'
 import { postAdded } from '../posts/postsSlice'
 
-export const AddPostForm = () => {
+export const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
