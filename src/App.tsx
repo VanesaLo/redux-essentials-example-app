@@ -7,7 +7,9 @@ import {
 } from 'react-router-dom'
 
 import { Navbar } from './app/Navbar'
+import { AddPostForm } from './components/AddPostForm'
 import { PostsList } from './components/PostsList'
+import { SinglePostPage } from './posts/SinglePostPage'
 
 function App() {
   return (
@@ -19,9 +21,13 @@ function App() {
             exact
             path="/"
             render={() => (
-              <PostsList/>
+              <>
+                <AddPostForm />
+                <PostsList />
+              </>
             )}
           />
+          <Route exact path="/posts/:postId" component={SinglePostPage} />
           <Redirect to="/" />
         </Switch>
       </div>
